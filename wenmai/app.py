@@ -14,14 +14,15 @@ from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
-from . import engine
+from . import engine, recognition, samples
 
 ROOT=Path(__file__).resolve().parent.parent
 RUNTIME=Path(os.environ.get('WENMAI_RUNTIME',ROOT/'runtime')).resolve()
 RUNTIME.mkdir(parents=True,exist_ok=True)
-app=FastAPI(title='Wenmai 纹脉',version='0.1.0')
+app=FastAPI(title='Wenmai 纹脉',version='0.2.0')
 app.mount('/static',StaticFiles(directory=ROOT/'wenmai'/'static'),name='static')
 DB=RUNTIME/'audit.sqlite3'
+recognition.initialize(DB)
 with sqlite3.connect(DB) as db:
     db.execute('CREATE TABLE IF NOT EXISTS events (id TEXT PRIMARY KEY, timestamp TEXT, payload TEXT)')
 
@@ -48,7 +49,7 @@ def save_asset(image,rights,source,origin):
     np.save(directory/'mask.npy',mask,allow_pickle=False)
     content=engine.png_bytes(engine.render(mask));(directory/'preview.png').write_bytes(content)
     record={'id':aid,'analysis':analysis,'rights':rights,'source':source,
-            'origin':origin,'created_at':datetime.now(timezone.utc).isoformat(),
+            'origin':origin,'is_synthetic':'synthetic' in origin,'created_at':datetime.now(timezone.utc).isoformat(),
             'normalized_sha256':hashlib.sha256(content).hexdigest(),
             'preview_url':f'/api/assets/{aid}/preview'}
     (directory/'asset.json').write_text(json.dumps(record,ensure_ascii=False,indent=2),'utf-8')
@@ -60,7 +61,7 @@ def index():return FileResponse(ROOT/'wenmai'/'static'/'index.html')
 
 
 @app.get('/api/health')
-def health():return {'status':'ok','version':'0.1.0','data_records':len(catalog()),'mode':'local_geometric_prototype'}
+def health():return {'status':'ok','version':'0.2.0','data_records':len(catalog()),'mode':'local_reference_recognition_prototype'}
 
 
 @app.post('/api/demo')
@@ -119,6 +120,7 @@ def edit_structure(asset_id: str, req: EditRequest):
         record = save_asset(image, parent['rights'], parent['source'], 'user_structure_edit')
     except ValueError as e:
         raise HTTPException(400, str(e))
+    record['is_synthetic'] = parent.get('is_synthetic', 'synthetic' in parent['origin'])
     record['parent_asset_id'] = asset_id
     record['operations'] = [o.model_dump() for o in req.operations]
     (RUNTIME/record['id']/'asset.json').write_text(json.dumps(record, ensure_ascii=False, indent=2), 'utf-8')
@@ -176,6 +178,9 @@ def design(req:DesignRequest):
           'ai_label':'机器辅助几何共创；未使用扩散模型；未经文化与实体工艺审核',
           'review_status':'pending_human_review','engine_version':'0.1.0',
           'limitations':['未训练母题分类模型','未执行文化寓意自动判定','SVG为二值逐行矢量化，未优化为加工刀路','未确认上传资料的实际权属，用户需提供有效许可']}
+    recognition_record=RUNTIME/req.asset_id/'recognition.json'
+    if recognition_record.exists():
+        card['recognition_snapshot']=json.loads(recognition_record.read_text('utf-8'))
     (directory/'source_card.json').write_text(json.dumps(card,ensure_ascii=False,indent=2),'utf-8')
     (directory/'changes.txt').write_text('\n'.join(report['changes'])+'\n'+card['ai_label'],'utf-8')
     with sqlite3.connect(DB) as db:
@@ -198,3 +203,84 @@ def download(design_id:str,kind:str):
             for name in ('design.png','design.svg','source_card.json','changes.txt'):z.write(directory/name,name)
         return Response(b.getvalue(),media_type='application/zip',headers={'Content-Disposition':f'attachment; filename="Wenmai_Design_{design_id[:8]}.zip"'})
     raise HTTPException(404,'未知格式')
+
+
+class RecognitionExample(BaseModel):
+    asset_id: str
+    label: str = Field(min_length=1, max_length=40)
+    training_consent: bool = False
+
+
+@app.get('/api/recognition/examples')
+def list_recognition_examples():
+    items = recognition.examples(DB)
+    return {'items':[{k:v for k,v in x.items() if k!='feature'} for x in items],
+            'classes': sorted({x['label'] for x in items}),
+            'method':'local_labeled_reference_gallery'}
+
+
+@app.post('/api/recognition/examples')
+def add_recognition_example(req: RecognitionExample):
+    label=req.label.strip()
+    if not label or any(ord(c)<32 for c in label):
+        raise HTTPException(400, '类别名称不能为空或含控制字符')
+    asset=read_asset(req.asset_id)
+    if asset.get('is_synthetic', 'synthetic' in asset['origin']):
+        raise HTTPException(400, '内置合成示例仅用于演示图库；请上传真实参考图片并核对标注与许可')
+    if not req.training_consent:
+        raise HTTPException(403, '需要明确同意将此图片用于本地识别参考图库')
+    if asset['rights']!='derivatives_allowed':
+        raise HTTPException(403, '参考素材必须具备已确认的使用许可')
+    mask=np.load(RUNTIME/req.asset_id/'mask.npy',allow_pickle=False)
+    vector=recognition.features(mask).tolist();eid=uuid.uuid4().hex
+    with sqlite3.connect(DB) as conn:
+        try:
+            conn.execute('INSERT INTO recognition_examples VALUES (?,?,?,?,?,?,?)',
+                         (eid,label,req.asset_id,asset['source'],json.dumps(vector),recognition.VERSION,datetime.now(timezone.utc).isoformat()))
+        except sqlite3.IntegrityError:
+            raise HTTPException(409, '同一图片已加入该类别，请添加其他独立样本')
+    with sqlite3.connect(DB) as conn:
+        conn.execute('INSERT INTO events VALUES (?,?,?)',
+                     (eid,datetime.now(timezone.utc).isoformat(),json.dumps({
+                         'event':'recognition_reference_enrolled','asset_id':req.asset_id,
+                         'label':label,'training_consent':True},ensure_ascii=False)))
+    return {'id':eid,'label':label,'asset_id':req.asset_id,'feature_version':recognition.VERSION}
+
+
+@app.delete('/api/recognition/examples/{example_id}')
+def delete_recognition_example(example_id:str):
+    valid_id(example_id)
+    with sqlite3.connect(DB) as conn:
+        cursor=conn.execute('DELETE FROM recognition_examples WHERE id=?',(example_id,))
+        if not cursor.rowcount:raise HTTPException(404,'参考样本不存在')
+    return {'deleted':True,'id':example_id}
+
+
+@app.get('/api/assets/{asset_id}/recognition')
+def recognize_asset(asset_id:str, gallery:str='user'):
+    read_asset(asset_id)
+    mask=np.load(RUNTIME/asset_id/'mask.npy',allow_pickle=False)
+    if gallery not in ('user','demo'):
+        raise HTTPException(400,'图库必须为user或demo')
+    result=recognition.predict(mask,DB)
+    result['asset_id']=asset_id
+    # Exclude exact same asset to avoid presenting self-retrieval as recognition.
+    if gallery=='demo':
+        demo_model=json.loads((ROOT/'data'/'recognition_demo_model.json').read_text('utf-8'))
+        filtered=demo_model['examples']
+    else:
+        filtered=[x for x in recognition.examples(DB) if x['asset_id']!=asset_id]
+    result['gallery']=gallery
+    result['data_scope']='synthetic_demo_only' if gallery=='demo' else 'user_labeled_references'
+    result['reference_count']=len(filtered)
+    result.update(recognition.rank(recognition.features(mask),filtered))
+    result['excluded_self_reference']=True
+    (RUNTIME/asset_id/'recognition.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),'utf-8')
+    return result
+
+
+@app.post('/api/recognition/demo')
+def recognition_demo(label:str='鱼'):
+    if label not in samples.LABELS:raise HTTPException(400,'示例类别不存在')
+    return save_asset(samples.sample(label,301),'derivatives_allowed',
+                      'Original synthetic '+label+' silhouette; not a real heritage object','recognition_synthetic_demo')
