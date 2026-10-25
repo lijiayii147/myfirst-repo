@@ -1,0 +1,227 @@
+{
+    "id": "18473999",
+    "tms:id": "147758",
+    "accession_number": "1971-50-113",
+    "title": "Letter Case (Spain), 17th century",
+    "title_raw": null,
+    "url": "https:\/\/collection.cooperhewitt.org\/objects\/18473999\/",
+    "has_no_known_copyright": "1",
+    "department_id": "35347501",
+    "period_id": null,
+    "media_id": "35397743",
+    "type_id": "35282769",
+    "date": "17th century",
+    "year_start": null,
+    "year_end": null,
+    "year_acquired": "1971",
+    "decade": null,
+    "woe:country_id": "23424950",
+    "medium": "silk, leather, and silver-wrapped silk",
+    "markings": null,
+    "signed": null,
+    "inscribed": null,
+    "provenance": null,
+    "dimensions": "H x W: 10.5 x 14.9 cm (4 1\/8 x 5 7\/8 in.)",
+    "dimensions_raw": {
+        "height": [
+            "10.48",
+            "centimeters"
+        ],
+        "width": [
+            "14.92",
+            "centimeters"
+        ]
+    },
+    "creditline": "Bequest of Marian Hague",
+    "description": "Leather letter case with embroidered floral design, which is the same on both sides. Edged with blue fabric and embroidery in pink, green, yellow, blue, and white.",
+    "justification": null,
+    "gallery_text": null,
+    "label_text": null,
+    "videos": null,
+    "on_display": null,
+    "woe:country": "23424950",
+    "type": "Letter case",
+    "images": [
+        {
+            "x": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42267_2d203e32beeee535_x.jpg",
+                "width": 3000,
+                "height": 2112,
+                "is_primary": "1",
+                "image_id": "42267"
+            },
+            "b": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42267_aa4934525de906da_b.jpg",
+                "width": 1024,
+                "height": 721,
+                "is_primary": "1",
+                "image_id": "42267"
+            },
+            "z": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42267_aa4934525de906da_z.jpg",
+                "width": 640,
+                "height": 451,
+                "is_primary": "1",
+                "image_id": "42267"
+            },
+            "n": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42267_aa4934525de906da_n.jpg",
+                "width": 320,
+                "height": 225,
+                "is_primary": "1",
+                "image_id": "42267"
+            },
+            "d": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42267_aa4934525de906da_d.gif",
+                "width": 320,
+                "height": 225,
+                "is_primary": "1",
+                "image_id": "42267"
+            },
+            "sq": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42267_aa4934525de906da_sq.jpg",
+                "width": 300,
+                "height": 300,
+                "is_primary": "1",
+                "image_id": "42267"
+            }
+        },
+        {
+            "x": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42268_64cc704105e1911a_x.jpg",
+                "width": 3000,
+                "height": 2144,
+                "is_primary": "0",
+                "image_id": "42268"
+            },
+            "b": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42268_92d22a93351a1e4a_b.jpg",
+                "width": 1024,
+                "height": 732,
+                "is_primary": "0",
+                "image_id": "42268"
+            },
+            "z": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42268_92d22a93351a1e4a_z.jpg",
+                "width": 640,
+                "height": 458,
+                "is_primary": "0",
+                "image_id": "42268"
+            },
+            "n": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42268_92d22a93351a1e4a_n.jpg",
+                "width": 320,
+                "height": 229,
+                "is_primary": "0",
+                "image_id": "42268"
+            },
+            "d": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42268_92d22a93351a1e4a_d.gif",
+                "width": 320,
+                "height": 229,
+                "is_primary": "0",
+                "image_id": "42268"
+            },
+            "sq": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/42268_92d22a93351a1e4a_sq.jpg",
+                "width": 300,
+                "height": 300,
+                "is_primary": "0",
+                "image_id": "42268"
+            }
+        },
+        {
+            "o": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/27473_b4a3474b192ddccb_o.jpg",
+                "width": 2873,
+                "height": 3000,
+                "is_primary": "0",
+                "image_id": "27473"
+            },
+            "b": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/27473_0db21f433a3359ef_b.jpg",
+                "width": 981,
+                "height": 1024,
+                "is_primary": "0",
+                "image_id": "27473"
+            },
+            "z": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/27473_0db21f433a3359ef_z.jpg",
+                "width": 613,
+                "height": 640,
+                "is_primary": "0",
+                "image_id": "27473"
+            },
+            "n": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/27473_0db21f433a3359ef_n.jpg",
+                "width": 306,
+                "height": 320,
+                "is_primary": "0",
+                "image_id": "27473"
+            },
+            "d": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/27473_0db21f433a3359ef_d.gif",
+                "width": 306,
+                "height": 320,
+                "is_primary": "0",
+                "image_id": "27473"
+            },
+            "sq": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/27473_0db21f433a3359ef_sq.jpg",
+                "width": 300,
+                "height": 300,
+                "is_primary": "0",
+                "image_id": "27473"
+            }
+        }
+    ],
+    "participants": [
+        {
+            "person_id": "18052465",
+            "role_id": "35351537",
+            "person_name": "Marian Hague",
+            "person_date": "",
+            "role_name": "Bequestor",
+            "role_display_name": "Bequest of",
+            "person_url": "https:\/\/collection.cooperhewitt.org\/people\/18052465\/",
+            "role_url": "https:\/\/collection.cooperhewitt.org\/roles\/35351537\/"
+        }
+    ],
+    "tombstone": {
+        "epitaph": "Letter Case (Spain), 17th century; silk, leather, and silver-wrapped silk; H x W: 10.5 x 14.9 cm (4 1\/8 x 5 7\/8 in.); Bequest of Marian Hague; 1971-50-113"
+    },
+    "colors": [
+        {
+            "color": "#493927",
+            "closest_crayola": "#414a4c",
+            "closest_css3": "#556b2f",
+            "closest_css4": "#556b2f"
+        },
+        {
+            "color": "#78603c",
+            "closest_crayola": "#85754e",
+            "closest_css3": "#556b2f",
+            "closest_css4": "#556b2f"
+        },
+        {
+            "color": "#d7d2c8",
+            "closest_crayola": "#dbd7d2",
+            "closest_css3": "#d3d3d3",
+            "closest_css4": "#d3d3d3"
+        },
+        {
+            "color": "#c1b186",
+            "closest_crayola": "#bab86c",
+            "closest_css3": "#d2b48c",
+            "closest_css4": "#d2b48c"
+        },
+        {
+            "color": "#4f576f",
+            "closest_crayola": "#4a646c",
+            "closest_css3": "#696969",
+            "closest_css4": "#696969"
+        }
+    ],
+    "woe:country_name": "Spain",
+    "is_loan_object": 0
+}

@@ -1,0 +1,4 @@
+*.bat text eol=crlf
+*.sh text eol=lf
+# Preserve the institution's original document formatting.
+data/COOPER_HEWITT_README.md -whitespace

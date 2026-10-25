@@ -1,0 +1,5 @@
+.git
+.venv
+runtime
+*.zip
+__pycache__

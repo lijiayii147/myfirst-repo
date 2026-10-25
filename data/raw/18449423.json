@@ -1,0 +1,99 @@
+{
+    "id": "18449423",
+    "tms:id": "135227",
+    "accession_number": "1963-5-1",
+    "title": "Textile (Uganda), early 20th century",
+    "title_raw": null,
+    "url": "https:\/\/collection.cooperhewitt.org\/objects\/18449423\/",
+    "has_no_known_copyright": null,
+    "department_id": "35347501",
+    "period_id": null,
+    "media_id": "35374395",
+    "type_id": "35251739",
+    "date": "early 20th century",
+    "year_start": 1901,
+    "year_end": 1925,
+    "year_acquired": "1963",
+    "decade": "1900",
+    "woe:country_id": "23424974",
+    "medium": "bark",
+    "markings": null,
+    "signed": null,
+    "inscribed": null,
+    "provenance": null,
+    "dimensions": "H x W: 224.8 x 104.1 cm (7 ft. 4 1\/2 in. x 41 in.)",
+    "dimensions_raw": {
+        "height": [
+            "224.79",
+            "centimeters"
+        ],
+        "width": [
+            "104.14",
+            "centimeters"
+        ]
+    },
+    "creditline": null,
+    "description": "Length of reddish brown bark cloth.",
+    "justification": null,
+    "gallery_text": "Beaten bark cloth is a craft tradition so deeply embedded in Ugandan culture that UNESCO has named it part of our world collective heritage. The cloth has a unique, suede-like surface, and, unlike the more widely known bark cloths from Hawaii and the Pacific islands, is never painted. Worn wrapped around the body toga-style by both men and women, bark cloth is used for ceremonies, funerals and important social occasions, but it also sees everyday use in the domestic interior as bedding and room dividers.\nThe bark is harvested from the Mutuba tree in strips roughly 15 inches wide. The exposed trunk is wrapped with banana leaves, to keep the tree healthy and allow the bark to re-grow.  To enhance the bark\u2019s distinctive rust color, the moist bark is smoked by piling banana leaves on top and burning them.  Men working with three different types of grooved mallets pound the bark over a period of hours, slowly stretching it \u2013 the finished product can be four times with width of the original strip \u2013 and softening until it is fine, flexible and supple.",
+    "label_text": null,
+    "videos": null,
+    "on_display": null,
+    "woe:country": "23424974",
+    "type": "textile",
+    "images": [
+        {
+            "b": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87652_02f2ac0f19201a74_b.jpg",
+                "width": 489,
+                "height": 1024,
+                "is_primary": "1",
+                "image_id": "87652"
+            },
+            "z": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87652_02f2ac0f19201a74_z.jpg",
+                "width": 305,
+                "height": 640,
+                "is_primary": "1",
+                "image_id": "87652"
+            },
+            "n": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87652_02f2ac0f19201a74_n.jpg",
+                "width": 153,
+                "height": 320,
+                "is_primary": "1",
+                "image_id": "87652"
+            },
+            "d": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87652_02f2ac0f19201a74_d.gif",
+                "width": 153,
+                "height": 320,
+                "is_primary": "1",
+                "image_id": "87652"
+            },
+            "sq": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87652_02f2ac0f19201a74_sq.jpg",
+                "width": 300,
+                "height": 300,
+                "is_primary": "1",
+                "image_id": "87652"
+            }
+        }
+    ],
+    "participants": [
+
+    ],
+    "tombstone": {
+        "epitaph": "Textile (Uganda), early 20th century; bark; H x W: 224.8 x 104.1 cm (7 ft. 4 1\/2 in. x 41 in.); 1963-5-1"
+    },
+    "colors": [
+        {
+            "color": "#c1afa3",
+            "closest_crayola": "#b0b7c6",
+            "closest_css3": "#a9a9a9",
+            "closest_css4": "#a9a9a9"
+        }
+    ],
+    "woe:country_name": "Uganda",
+    "is_loan_object": 0
+}

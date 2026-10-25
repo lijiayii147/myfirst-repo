@@ -1,0 +1,145 @@
+{
+    "id": "18491403",
+    "tms:id": "156582",
+    "accession_number": "1976-71-1-a\/c",
+    "title": "Fragments (USA), 18th century",
+    "title_raw": null,
+    "url": "https:\/\/collection.cooperhewitt.org\/objects\/18491403\/",
+    "has_no_known_copyright": "1",
+    "department_id": "35347501",
+    "period_id": null,
+    "media_id": "35366701",
+    "type_id": "35254679",
+    "date": "18th century",
+    "year_start": null,
+    "year_end": null,
+    "year_acquired": "1976",
+    "decade": null,
+    "woe:country_id": "23424977",
+    "medium": "wool, linen",
+    "markings": null,
+    "signed": null,
+    "inscribed": null,
+    "provenance": null,
+    "dimensions": "H x W (a): 71 x 15 cm (27 15\/16 x 5 7\/8 in.)\nH x W (b): 71 x 19 cm (27 15\/16 x 7 1\/2 in.)\nH x W (c): 70 x 12.7 cm (27 9\/16 in. x 5 in.)",
+    "dimensions_raw": {
+        "height": [
+            "71.00",
+            "centimeters"
+        ],
+        "width": [
+            "19.00",
+            "centimeters"
+        ]
+    },
+    "creditline": null,
+    "description": "Three fragments of embroidered upholstery fabric in a multicolored zigzag pattern (flame stitch).",
+    "justification": null,
+    "gallery_text": null,
+    "label_text": null,
+    "videos": null,
+    "on_display": null,
+    "woe:country": "23424977",
+    "type": "Fragments",
+    "images": [
+        {
+            "x": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/229781_42a80ed422f1a1c1_x.jpg",
+                "width": 2901,
+                "height": 4096,
+                "is_primary": "1",
+                "image_id": "229781"
+            },
+            "b": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/229781_79c42ab6c8ea7306_b.jpg",
+                "width": 726,
+                "height": 1024,
+                "is_primary": "1",
+                "image_id": "229781"
+            },
+            "z": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/229781_79c42ab6c8ea7306_z.jpg",
+                "width": 453,
+                "height": 640,
+                "is_primary": "1",
+                "image_id": "229781"
+            },
+            "n": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/229781_79c42ab6c8ea7306_n.jpg",
+                "width": 227,
+                "height": 320,
+                "is_primary": "1",
+                "image_id": "229781"
+            },
+            "d": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/229781_79c42ab6c8ea7306_d.gif",
+                "width": 227,
+                "height": 320,
+                "is_primary": "1",
+                "image_id": "229781"
+            },
+            "sq": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/229781_79c42ab6c8ea7306_sq.jpg",
+                "width": 300,
+                "height": 300,
+                "is_primary": "1",
+                "image_id": "229781"
+            }
+        },
+        {
+            "o": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87190_77bd4708f20ace18_o.jpg",
+                "width": 2246,
+                "height": 3000,
+                "is_primary": "0",
+                "image_id": "87190"
+            },
+            "b": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87190_d713bc0112911787_b.jpg",
+                "width": 767,
+                "height": 1024,
+                "is_primary": "0",
+                "image_id": "87190"
+            },
+            "z": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87190_d713bc0112911787_z.jpg",
+                "width": 479,
+                "height": 640,
+                "is_primary": "0",
+                "image_id": "87190"
+            },
+            "n": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87190_d713bc0112911787_n.jpg",
+                "width": 240,
+                "height": 320,
+                "is_primary": "0",
+                "image_id": "87190"
+            },
+            "d": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87190_d713bc0112911787_d.gif",
+                "width": 240,
+                "height": 320,
+                "is_primary": "0",
+                "image_id": "87190"
+            },
+            "sq": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/87190_d713bc0112911787_sq.jpg",
+                "width": 300,
+                "height": 300,
+                "is_primary": "0",
+                "image_id": "87190"
+            }
+        }
+    ],
+    "participants": [
+
+    ],
+    "tombstone": {
+        "epitaph": "Fragments (USA), 18th century; wool, linen; H x W (a): 71 x 15 cm (27 15\/16 x 5 7\/8 in.)\nH x W (b): 71 x 19 cm (27 15\/16 x 7 1\/2 in.)\nH x W (c): 70 x 12.7 cm (27 9\/16 in. x 5 in.); 1976-71-1-a\/c"
+    },
+    "colors": [
+
+    ],
+    "woe:country_name": "United States",
+    "is_loan_object": 0
+}

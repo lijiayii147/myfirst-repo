@@ -1,0 +1,193 @@
+{
+    "id": "18326839",
+    "tms:id": "47893",
+    "accession_number": "1931-65-167",
+    "title": "Pleated Fan (England), 1795\u20131805",
+    "title_raw": null,
+    "url": "https:\/\/collection.cooperhewitt.org\/objects\/18326839\/",
+    "has_no_known_copyright": "1",
+    "department_id": "35347501",
+    "period_id": null,
+    "media_id": "404577527",
+    "type_id": "69117343",
+    "date": "1795\u20131805",
+    "year_start": null,
+    "year_end": null,
+    "year_acquired": "1931",
+    "decade": null,
+    "woe:country_id": "23424975",
+    "medium": "painted parchment leaf, painted and gilded ivory sticks carved \u00e0 jour, glass stone",
+    "markings": null,
+    "signed": null,
+    "inscribed": null,
+    "provenance": "Donated by Eleanor Garnier Hewitt",
+    "dimensions": "H x W (open): 25.4 x 45.7 cm (10 x 18 in.)",
+    "dimensions_raw": {
+        "height": [
+            "25.40",
+            "centimeters"
+        ],
+        "width": [
+            "45.72",
+            "centimeters"
+        ]
+    },
+    "creditline": "Gift of Eleanor Garnier Hewitt",
+    "description": "Pleated fan with painted parchment leaf. Obverse: two side rectangular panels; one with a landscape and cows; the other, a landscape with fisherman. The central medallion depicting a woman as the allegory of color. The background in the French Directoire style with pastel colors. Reverse: minute floral decoration along borders. Ivory sticks: carved \u00e0 jour, gilded and painted. Glass stone at the rivet.",
+    "justification": null,
+    "gallery_text": null,
+    "label_text": null,
+    "videos": null,
+    "on_display": null,
+    "woe:country": "23424975",
+    "type": "Pleated fan",
+    "images": [
+        {
+            "x": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/63148_09107a40ac4b5fac_x.jpg",
+                "width": 3000,
+                "height": 3000,
+                "is_primary": "1",
+                "image_id": "63148"
+            },
+            "b": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/63148_3f1e49f9e68214a9_b.jpg",
+                "width": 1024,
+                "height": 1024,
+                "is_primary": "1",
+                "image_id": "63148"
+            },
+            "z": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/63148_3f1e49f9e68214a9_z.jpg",
+                "width": 640,
+                "height": 640,
+                "is_primary": "1",
+                "image_id": "63148"
+            },
+            "n": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/63148_3f1e49f9e68214a9_n.jpg",
+                "width": 320,
+                "height": 320,
+                "is_primary": "1",
+                "image_id": "63148"
+            },
+            "d": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/63148_3f1e49f9e68214a9_d.gif",
+                "width": 320,
+                "height": 320,
+                "is_primary": "1",
+                "image_id": "63148"
+            },
+            "sq": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/63148_3f1e49f9e68214a9_sq.jpg",
+                "width": 300,
+                "height": 300,
+                "is_primary": "1",
+                "image_id": "63148"
+            }
+        },
+        {
+            "o": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/69516_1b96845c4fb0e493_o.jpg",
+                "width": 3000,
+                "height": 1931,
+                "is_primary": "0",
+                "image_id": "69516"
+            },
+            "b": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/69516_c79e8bcf5af520f3_b.jpg",
+                "width": 1024,
+                "height": 659,
+                "is_primary": "0",
+                "image_id": "69516"
+            },
+            "z": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/69516_c79e8bcf5af520f3_z.jpg",
+                "width": 640,
+                "height": 412,
+                "is_primary": "0",
+                "image_id": "69516"
+            },
+            "n": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/69516_c79e8bcf5af520f3_n.jpg",
+                "width": 320,
+                "height": 206,
+                "is_primary": "0",
+                "image_id": "69516"
+            },
+            "d": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/69516_c79e8bcf5af520f3_d.gif",
+                "width": 320,
+                "height": 206,
+                "is_primary": "0",
+                "image_id": "69516"
+            },
+            "sq": {
+                "url": "https:\/\/images.collection.cooperhewitt.org\/69516_c79e8bcf5af520f3_sq.jpg",
+                "width": 300,
+                "height": 300,
+                "is_primary": "0",
+                "image_id": "69516"
+            }
+        }
+    ],
+    "participants": [
+        {
+            "person_id": "18049325",
+            "role_id": "35351535",
+            "person_name": "Eleanor Garnier Hewitt",
+            "person_date": "American, 1864\u20131924",
+            "role_name": "Donor",
+            "role_display_name": "Donated by",
+            "person_url": "https:\/\/collection.cooperhewitt.org\/people\/18049325\/",
+            "role_url": "https:\/\/collection.cooperhewitt.org\/roles\/35351535\/"
+        },
+        {
+            "person_id": "18538319",
+            "role_id": "35236677",
+            "person_name": "Maria Anna Angelica Kauffmann",
+            "person_date": "Swiss, 1741 \u2013 1807",
+            "role_name": "After",
+            "role_display_name": "After",
+            "person_url": "https:\/\/collection.cooperhewitt.org\/people\/18538319\/",
+            "role_url": "https:\/\/collection.cooperhewitt.org\/roles\/35236677\/"
+        }
+    ],
+    "tombstone": {
+        "epitaph": "Pleated Fan (England), 1795\u20131805; After Maria Anna Angelica Kauffmann (Swiss, 1741 \u2013 1807); painted parchment leaf, painted and gilded ivory sticks carved \u00e0 jour, glass stone; H x W (open): 25.4 x 45.7 cm (10 x 18 in.); Gift of Eleanor Garnier Hewitt; 1931-65-167"
+    },
+    "colors": [
+        {
+            "color": "#ded5c3",
+            "closest_crayola": "#dbd7d2",
+            "closest_css3": "#d3d3d3",
+            "closest_css4": "#d3d3d3"
+        },
+        {
+            "color": "#b8aa82",
+            "closest_crayola": "#bab86c",
+            "closest_css3": "#bdb76b",
+            "closest_css4": "#bdb76b"
+        },
+        {
+            "color": "#8f7f5c",
+            "closest_crayola": "#8a795d",
+            "closest_css3": "#808080",
+            "closest_css4": "#808080"
+        },
+        {
+            "color": "#645748",
+            "closest_crayola": "#6e5160",
+            "closest_css3": "#556b2f",
+            "closest_css4": "#556b2f"
+        },
+        {
+            "color": "#95988f",
+            "closest_crayola": "#95918c",
+            "closest_css3": "#808080",
+            "closest_css4": "#808080"
+        }
+    ],
+    "woe:country_name": "United Kingdom",
+    "is_loan_object": 0
+}
