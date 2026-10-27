@@ -284,3 +284,68 @@ def recognition_demo(label:str='鱼'):
     if label not in samples.LABELS:raise HTTPException(400,'示例类别不存在')
     return save_asset(samples.sample(label,301),'derivatives_allowed',
                       'Original synthetic '+label+' silhouette; not a real heritage object','recognition_synthetic_demo')
+
+# Miao embroidery MVP: traceable metadata catalog, lightweight analysis and expert correction.
+import csv as _csv
+from datetime import datetime as _datetime
+
+MIAO_CATALOG = ROOT / 'data' / 'miao_metadata.csv'
+MIAO_SUBJECTS = ('蝴蝶纹','鸟纹','鱼纹','龙纹','花草纹','几何纹','动物组合纹')
+MIAO_STITCHES = ('平绣','绞绣','锁绣','打籽绣','挑花','辫绣')
+
+def _miao_rows():
+    if not MIAO_CATALOG.exists(): return []
+    with MIAO_CATALOG.open(encoding='utf-8-sig', newline='') as f:
+        return list(_csv.DictReader(f))
+
+def _miao_guess(text):
+    subject = next((x for x in MIAO_SUBJECTS if x in text), 'unknown')
+    stitch = next((x for x in MIAO_STITCHES if x in text), 'unknown')
+    return subject, stitch
+
+@app.get('/api/miao/catalog')
+def miao_catalog(subject: str = '', stitch: str = '', region: str = '', limit: int = 100):
+    rows = _miao_rows()
+    if subject: rows = [r for r in rows if subject in r.get('纹样题材','')]
+    if stitch: rows = [r for r in rows if stitch in r.get('针法','')]
+    if region: rows = [r for r in rows if region in r.get('地区','')]
+    limit = max(1, min(500, limit))
+    return {'items': rows[:limit], 'total': len(rows), 'subjects': list(MIAO_SUBJECTS), 'stitches': list(MIAO_STITCHES)}
+
+@app.post('/api/miao/analyze')
+async def miao_analyze(file: UploadFile = File(...)):
+    raw = await file.read(8 * 1024 * 1024 + 1)
+    if len(raw) > 8 * 1024 * 1024: raise HTTPException(413, '上传限8 MB')
+    try:
+        with Image.open(BytesIO(raw)) as image:
+            image.load(); mask, analysis = engine.analyze(image)
+            # MVP baseline: metadata keyword prior plus deterministic visual descriptors.
+            subject, stitch = _miao_guess((file.filename or '') + ' ' + str(file.headers))
+            rows = _miao_rows()
+            top = []
+            for r in rows[:5]:
+                top.append({'image_id': r.get('image_id'), 'similarity': None,
+                            'subject': r.get('纹样题材','unknown'), 'stitch': r.get('针法','unknown'),
+                            'region': r.get('地区','unknown'), 'meaning': r.get('文化寓意','待专家确认'),
+                            'source_url': r.get('原始链接',''), 'source': r.get('图片来源','')})
+            return {'status':'needs_review' if subject == 'unknown' or stitch == 'unknown' else 'candidate',
+                    'subject': subject, 'subject_confidence': None, 'stitch': stitch,
+                    'stitch_confidence': None, 'top_subjects': [], 'segmentation': analysis,
+                    'retrieval': top, 'evidence_note':'候选来自采集表；置信度和相似度需完成训练与向量检索后填充。'}
+    except (UnidentifiedImageError, OSError, ValueError) as exc:
+        raise HTTPException(400, str(exc))
+
+@app.post('/api/miao/corrections')
+def miao_correction(payload: dict):
+    image_id = str(payload.get('image_id','')).strip()
+    if not image_id: raise HTTPException(400, 'image_id required')
+    subject = str(payload.get('subject','unknown')); stitch = str(payload.get('stitch','unknown'))
+    if subject != 'unknown' and subject not in MIAO_SUBJECTS: raise HTTPException(400, 'invalid subject')
+    if stitch != 'unknown' and stitch not in MIAO_STITCHES: raise HTTPException(400, 'invalid stitch')
+    record = {'image_id': image_id, 'before': payload.get('before', {}),
+              'after': {'subject': subject, 'stitch': stitch, 'meaning': payload.get('meaning','')},
+              'reviewer': payload.get('reviewer','anonymous'), 'reason': payload.get('reason',''),
+              'timestamp': _datetime.now(timezone.utc).isoformat(), 'retrain': bool(payload.get('retrain', False))}
+    path = RUNTIME / 'miao_corrections.jsonl'
+    with path.open('a', encoding='utf-8') as f: f.write(json.dumps(record, ensure_ascii=False) + '\n')
+    return {'status':'saved', 'record': record}
